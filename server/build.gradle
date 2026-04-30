@@ -73,8 +73,8 @@ dependencies {
   compileOnly project.deps.jetBrainsAnnotations
 
   apiBase project(':api:api-base')
-  allApis project(':api').subprojects
-  spark project(':spark').subprojects
+  allApis findProject(':api').subprojects.collect() { project(it.path) }
+  spark findProject(':spark').subprojects.collect() { project(it.path) }
   implementation project(':config:config-api')
   api project(':config:config-server')
   api(project(':plugin-infra:go-plugin-access')) { capabilities { requireFeature('server-only') } }

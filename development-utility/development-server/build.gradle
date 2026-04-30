@@ -25,8 +25,8 @@ configurations {
 dependencies {
   implementation project(':server')
   implementation project(':base')
-  runtimeOnly project(':api').subprojects.collect { project(it.path) }
-  runtimeOnly project(':spark').subprojects.collect { project(it.path) }
+  runtimeOnly findProject(':api').subprojects.collect { project(it.path) }
+  runtimeOnly findProject(':spark').subprojects.collect { project(it.path) }
   runtimeOnly project.deps.jetty
   runtimeOnly project.deps.jettyJmx
   runtimeOnly project.deps.jettyServlets
